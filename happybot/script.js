@@ -299,33 +299,39 @@ initHappyBot();
 
 // ---------------- Expose helpers ----------------
 window.HappyBot={ startRandomGame, getContext:()=>JSON.parse(JSON.stringify(context)), setUsername:(name)=>{ settings.username=name; saveSettings(settings); context.username=name;} };
-// 🎨 TEKENVAK SCRIPT
+// --- Drawing Pad ---
 const canvas = document.getElementById("draw-canvas");
 const ctx = canvas.getContext("2d");
 
-// Canvas schalen naar de juiste grootte
-canvas.width = canvas.offsetWidth;
-canvas.height = canvas.offsetHeight;
-
 let drawing = false;
+let colorPicker = document.getElementById("color-picker");
+let sizePicker = document.getElementById("size-picker");
 
-// Begin tekenen
+// Pen style
+ctx.lineJoin = "round";
+ctx.lineCap = "round";
+
 canvas.addEventListener("mousedown", () => drawing = true);
 canvas.addEventListener("mouseup", () => drawing = false);
-canvas.addEventListener("mouseleave", () => drawing = false);
+canvas.addEventListener("mouseout", () => drawing = false);
 
-// Tekenen met muis
-canvas.addEventListener("mousemove", (e) => {
+canvas.addEventListener("mousemove", draw);
+
+function draw(event) {
     if (!drawing) return;
-    ctx.fillStyle = "black"; // kleur
-    ctx.beginPath();
-    ctx.arc(e.offsetX, e.offsetY, 3, 0, Math.PI * 2);
-    ctx.fill();
-});
 
-// Wissen-knop
-document.getElementById("clear-btn").addEventListener("click", () => {
+    ctx.strokeStyle = colorPicker.value;
+    ctx.lineWidth = sizePicker.value;
+
+    ctx.beginPath();
+    ctx.moveTo(event.offsetX, event.offsetY);
+    ctx.lineTo(event.offsetX, event.offsetY);
+    ctx.stroke();
+}
+
+function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-});
+}
+
 
 
