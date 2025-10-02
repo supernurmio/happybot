@@ -87,9 +87,20 @@ button:hover {
     margin-bottom: 10px;
 }
 
+.draw-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.draw-controls input[type="color"],
+.draw-controls input[type="range"] {
+    margin-left: 5px;
+}
+
 .draw-controls button {
-    margin-top: 10px;
     background: #dc3545;
+    margin-top: 5px;
 }
 
 .draw-controls button:hover {
