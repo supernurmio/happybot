@@ -299,4 +299,33 @@ initHappyBot();
 
 // ---------------- Expose helpers ----------------
 window.HappyBot={ startRandomGame, getContext:()=>JSON.parse(JSON.stringify(context)), setUsername:(name)=>{ settings.username=name; saveSettings(settings); context.username=name;} };
+// 🎨 TEKENVAK SCRIPT
+const canvas = document.getElementById("draw-canvas");
+const ctx = canvas.getContext("2d");
+
+// Canvas schalen naar de juiste grootte
+canvas.width = canvas.offsetWidth;
+canvas.height = canvas.offsetHeight;
+
+let drawing = false;
+
+// Begin tekenen
+canvas.addEventListener("mousedown", () => drawing = true);
+canvas.addEventListener("mouseup", () => drawing = false);
+canvas.addEventListener("mouseleave", () => drawing = false);
+
+// Tekenen met muis
+canvas.addEventListener("mousemove", (e) => {
+    if (!drawing) return;
+    ctx.fillStyle = "black"; // kleur
+    ctx.beginPath();
+    ctx.arc(e.offsetX, e.offsetY, 3, 0, Math.PI * 2);
+    ctx.fill();
+});
+
+// Wissen-knop
+document.getElementById("clear-btn").addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
 
