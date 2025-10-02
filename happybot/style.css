@@ -1,153 +1,97 @@
-/* ================= HappyBot Ultimate CSS ================= */
-
-/* Body styling */
+/* General Page Styling */
 body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    font-family: 'Inter', Arial, sans-serif;
-    background: linear-gradient(to top, #c8f7dc, #fef6e4);
-    overflow: hidden;
-}
-
-/* Achtergrond animaties */
-#happybot-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.floating-emoji {
-    position: absolute;
-    animation: floatEmoji linear infinite;
-    user-select: none;
-}
-
-@keyframes floatEmoji {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
-}
-
-/* Wrapper container */
-#happybot-wrapper {
-    position: relative;
-    z-index: 1;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Layout */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
     width: 90%;
-    max-width: 700px;
-    height: 90vh;
-    margin: 2% auto;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    max-width: 1200px;
 }
 
-/* Header */
-#happybot-header {
-    background: linear-gradient(90deg, #ff6f61, #ffca28);
-    color: white;
-    padding: 12px 16px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    border-bottom: 2px solid #ffca28;
-}
-
-/* Chat container */
-#chat-container {
-    flex: 1;
+/* Chat Section */
+.chat-container {
+    flex: 2;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 20px;
+    height: 600px;
+}
+
+#chat-box {
+    flex: 1;
     overflow-y: auto;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.6);
-    scroll-behavior: smooth;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
 }
 
-/* Messages */
-.happybot-msg {
-    padding: 8px 12px;
-    border-radius: 12px;
-    max-width: 80%;
-    line-height: 1.4;
-    word-wrap: break-word;
-    transition: all 0.2s ease-in-out;
-}
-
-.happybot-msg.bot {
-    background: #f1f8ff;
-    color: #111;
-    align-self: flex-start;
-    animation: popIn 0.3s ease-out;
-}
-
-.happybot-msg.user {
-    background: #dff7df;
-    color: #043;
-    align-self: flex-end;
-    text-align: right;
-    animation: popIn 0.3s ease-out;
-}
-
-@keyframes popIn {
-    0% { transform: scale(0.9); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-/* Controls */
-#happybot-controls {
+.input-container {
     display: flex;
-    padding: 10px 12px;
-    border-top: 1px solid #ddd;
-    background: rgba(255,255,255,0.8);
-    gap: 8px;
+    gap: 10px;
 }
 
 #user-input {
     flex: 1;
-    padding: 10px 14px;
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
 }
 
-#user-input:focus {
-    border-color: #ff6f61;
-    box-shadow: 0 0 5px rgba(255,111,97,0.5);
-}
-
-#send-btn {
-    padding: 10px 16px;
-    border-radius: 8px;
+button {
+    padding: 10px 20px;
     border: none;
-    background: #ff6f61;
+    border-radius: 8px;
+    background: #007bff;
     color: white;
-    font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
-#send-btn:hover {
-    background: #e65c50;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+button:hover {
+    background: #0056b3;
 }
 
-/* Scrollbar */
-#chat-container::-webkit-scrollbar {
-    width: 8px;
+/* Drawing Section */
+.draw-container {
+    flex: 1;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    height: 600px;
 }
-#chat-container::-webkit-scrollbar-thumb {
-    background-color: #ffca28;
-    border-radius: 4px;
+
+#draw-canvas {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: crosshair;
+    margin-bottom: 10px;
 }
-#chat-container::-webkit-scrollbar-track {
-    background: #f0f0f0;
+
+.draw-controls button {
+    margin-top: 10px;
+    background: #dc3545;
+}
+
+.draw-controls button:hover {
+    background: #a71d2a;
 }
