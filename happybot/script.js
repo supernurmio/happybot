@@ -332,6 +332,40 @@ function draw(event) {
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
+// --- Drawing Pad ---
+const canvas = document.getElementById("draw-canvas");
+const ctx = canvas.getContext("2d");
+
+let drawing = false;
+let colorPicker = document.getElementById("color-picker");
+let sizePicker = document.getElementById("size-picker");
+
+// Pen style
+ctx.lineJoin = "round";
+ctx.lineCap = "round";
+
+canvas.addEventListener("mousedown", () => drawing = true);
+canvas.addEventListener("mouseup", () => drawing = false);
+canvas.addEventListener("mouseout", () => drawing = false);
+
+canvas.addEventListener("mousemove", draw);
+
+function draw(event) {
+    if (!drawing) return;
+
+    ctx.strokeStyle = colorPicker.value;
+    ctx.lineWidth = sizePicker.value;
+
+    ctx.beginPath();
+    ctx.moveTo(event.offsetX, event.offsetY);
+    ctx.lineTo(event.offsetX, event.offsetY);
+    ctx.stroke();
+}
+
+function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
 
 
 
