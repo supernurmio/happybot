@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HappyBot - Drawing Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h1 class="logo">🌸 HappyBot</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chat.html">HappyBot Chat</a></li>
+      <li><a href="drawing.html" class="active">Drawing Board</a></li>
+    </ul>
+  </nav>
+
+  <!-- Drawing board -->
+  <div class="drawing-wrapper">
+    <h2>🎨 Drawing Board</h2>
+    <div class="drawing-tools">
+      <label for="color-picker">Choose Color:</label>
+      <input type="color" id="color-picker" value="#ff6f61">
+      <button id="clear-btn">Clear</button>
+    </div>
+    <canvas id="drawing-canvas"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
