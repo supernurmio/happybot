@@ -1,108 +1,62 @@
-/* === Global Reset === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Algemene stijl */
 body {
-  font-family: 'Inter', sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
   background: #121212;
   color: #eee;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-/* === Navbar === */
-.navbar {
+/* Navigatie */
+nav {
   background: #1e1e1e;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  border-bottom: 2px solid #333;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
-
-.logo {
-  color: #ffca28;
-  font-size: 1.5rem;
-}
-
-.nav-links {
+nav ul {
   list-style: none;
   display: flex;
+  margin: 0;
+  padding: 0;
   gap: 20px;
 }
-
-.nav-links a {
-  text-decoration: none;
+nav ul li a {
   color: #eee;
+  text-decoration: none;
   font-weight: bold;
-  transition: 0.2s;
 }
-
-.nav-links a:hover,
-.nav-links a.active {
+nav ul li a:hover {
   color: #ff6f61;
 }
 
-/* === Home Page === */
-.home-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
+/* Pagina's */
+.page {
+  display: none;
+  padding: 20px;
+}
+.page.active {
+  display: block;
 }
 
-.home-content h2 {
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-
-.home-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 20px;
-}
-
-.btn {
-  background: #ff6f61;
-  padding: 12px 20px;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.btn:hover {
-  background: #e65c50;
-}
-
-/* === Chat Page === */
+/* Chatbox styling */
 #happybot-wrapper {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 700px;
   width: 90%;
-  margin: 20px auto;
-  border: 1px solid #333;
+  max-width: 600px;
+  height: 70vh;
+  margin: auto;
   border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   background: #1e1e1e;
 }
 
 #happybot-header {
-  padding: 12px;
-  text-align: center;
-  font-weight: bold;
-  background: #ff6f61;
+  background: linear-gradient(90deg, #ff6f61, #ffca28);
   color: #fff;
-  border-radius: 12px 12px 0 0;
+  padding: 12px;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 #chat-container {
@@ -111,33 +65,34 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+  background: #181818;
 }
 
 .happybot-msg {
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 12px;
-  max-width: 70%;
+  max-width: 80%;
 }
-
 .happybot-msg.bot {
   background: #333;
+  color: #eee;
   align-self: flex-start;
 }
-
 .happybot-msg.user {
   background: #ff6f61;
-  color: #fff;
+  color: white;
   align-self: flex-end;
+  text-align: right;
 }
 
 #happybot-controls {
   display: flex;
   padding: 10px;
   border-top: 1px solid #333;
-  background: #2a2a2a;
+  background: #222;
+  gap: 8px;
 }
-
 #user-input {
   flex: 1;
   padding: 10px;
@@ -145,43 +100,41 @@ body {
   border: none;
   outline: none;
 }
-
 #send-btn {
-  margin-left: 8px;
   padding: 10px 16px;
-  border: none;
   border-radius: 8px;
+  border: none;
   background: #ff6f61;
-  color: #fff;
+  color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.2s;
 }
-
 #send-btn:hover {
   background: #e65c50;
 }
 
-/* === Drawing Board === */
-.drawing-wrapper {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+/* Drawing Board */
+#drawing {
+  text-align: center;
 }
-
-.drawing-tools {
-  margin-bottom: 10px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-#drawing-canvas {
+#drawingCanvas {
+  margin-top: 15px;
   border: 2px solid #444;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #fff;
-  width: 90%;
-  height: 70vh;
+  cursor: crosshair;
+}
+#drawing-tools {
+  margin: 10px 0;
+}
+button {
+  background: #ff6f61;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  background: #e65c50;
 }
