@@ -2,30 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HappyBot - Chat</title>
+  <title>HappyBot Chat</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <h1 class="logo">🌸 HappyBot</h1>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chat.html" class="active">HappyBot Chat</a></li>
-      <li><a href="drawing.html">Drawing Board</a></li>
-    </ul>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="chat.html">HappyBot</a>
+    <a href="draw.html">Drawing Board</a>
   </nav>
 
-  <!-- Chat wrapper -->
-  <div id="happybot-wrapper">
-    <div id="happybot-header">HappyBot Chat 💬</div>
-    <div id="chat-container"></div>
-    <div id="happybot-controls">
-      <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+  <main class="chat-container">
+    <div id="chat-box"></div>
+    <div class="input-container">
+      <input type="text" id="user-input" placeholder="Type your message...">
       <button id="send-btn">Send</button>
     </div>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
